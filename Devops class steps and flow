@@ -1,0 +1,265 @@
+Devops 25-8-19 :- 
+add user :
+sudo adduser username
+sudo passwd username
+
+group :-
+“sudo groupadd example_group”
+
+-> add user in group:-
+“sudo usermod  -G
+example_group -a example”
+
+-> to give permision to user 
+sudo vi /etc/sudoers
+user name All=(All) "/bin/permition"
+
+-> login to user 
+su username
+
+->file permision code 
+r=4
+w=2
+x=1
+rwx= 4+2+1 =7
+chmod pemision code file 
+
+-> change file owner
+chown user1:group1 file
+
+->services and processes:-
+    To check all services 
+sudo systmctl list-unit
+
+    Start services
+sudo services start service name
+sudo  services  stop
+sudo  services  status
+
+process
+
+-> disck usage
+to check disc file system usages
+df -h 
+
+->check file size 
+du -sh fileor directory name 
+
+->
+ 
+Devops 31-8-19
+Git:-
+git- agent 
+github - clout platform 
+repository - folder
+local repository- local folder 
+branch -  sub folder in repository 
+commit - add virsion in local repository 
+pull -  download  the version code
+push - upload the visrion code
+clone - copy of repository to machine 
+tag - viersion naming 
+contribute -
+-----------------------------------------------------------
+to install git
+choco install git 
+
+to clone repository 
+git colone url
+
+git status
+ 
+add file 
+git add file_name
+
+for commit
+git commit -m "message "
+ 
+to push 
+git push origin 
+
+to pull 
+git pull origin
+
+to check current branch 
+git branch 
+
+to swithch branch 
+git checkout branch_name
+
+after status to check changes in file 
+git diff file name 
+
+commits:-
+git log 
+
+
+DevOps  1-9-19 :- 
+
+Shell Script 
+for use of veriable :-
+${variable}
+
+for input on variable
+
+varibale_name= ${i/p_varible/argument ex. 1}
+
+taking i/p from user while displaying msg 
+read -p "varible msg" varible
+
+DevOps 7-9-19 :- 
+
+Jenkins:-
+installin jenkins
+creatin a job in jenkins
+clone the github repository into jenkins job
+------------------------------------------------
+Marven :-
+sudo install maven
+mvn install -Dmaven.test.skip=true
+
+
+DevOps 8-9-19 :- 
+
+master/slave :- 
+slave machine_config:- 
+
+1) launch an instances
+2) create a user name in instance
+       sudo useradd u_name
+3) create a user password
+      sudo passwd u_name
+4) sudo vi /etc/ssh/sshd_config
+       /password (enable )
+5) sudo service sshd restart
+
+
+DevOps 14-9-19 :- 
+Docker:- 
+
+what is Docer
+docker container (perticular image)
+installing docker 
+
+docker container 
+docker ps :- list of running containger 
+docker ps -a :-all containger 
+
+installing image of application:- 
+
+sudo docker run -it -p port(9060:80) application name  (nginx) 
+
+application exicution :-
+docker exac -it (contailer id)  /bin/bash
+
+maping volume ;-
+sudo docker run -it -p port(9060:8080)  -p port (9090:8080)application name  (jenkins) -v -/jenkins (local folder ) :/var/jenkins_home_jenkins (jenkins folder 
+
+docker imager:- 
+
+sudo docker commit container id aplication name:tag (ubuntu:ag)
+
+
+For changine image name :- 
+sudo docker tag (old name) ( new name  )
+
+Assignment :-
+1 docker hub account
+2 create registry
+3 in pull image install jenkins maven mysql
+4 docker commit 
+5 push to repository 
+
+
+
+DevOps 15-9-19 :-
+
+docker File 
+1 FROM :-(base app or starting app)
+2 RUN:- (run shell command)
+3 COPY:-(copy or add file to directory)
+4 ADD
+5 ENV:- (variable)
+6 WORKDIR:- (fix path)
+7 EXPESE:-(open port )
+8 VOLUME:-(clone)
+9 CMD:-(run command )
+10 ENTRYPOINT:-(command or shell command)
+11 LABEL
+12 USER
+13 ARG:-(vlaue assiging to var)
+----------------------------------------------
+
+user as root (without sudo)
+sudo usermod -a -G Docker jenkisn
+
+build jenkins for docker:- 
+mvn clean install -Dmaven.test.skip=true
+docker login -u $user -p $pass
+docker build -t ajit4/spring-petclinic:${BUILD_NUMBER} .
+docker push ajit4/spring-petclinic:${BUILD_NUMBER}
+--------------------------------------------------
+
+DevOps  21-9-19 :- 
+
+terraform :-
+* to create infrastructure from writing the code in teraform 
+* itwill be use for aws azzur etc.
+
+terraform init :
+to download terra file
+
+terraform plan : 
+ show the code opertio
+
+terraform apply :
+to exicute the code 
+
+terraform destroy :-
+delete the operation 
+
+
+DevOps 22-9-19 :- 
+> CI :- 
+add plugin - paramiterzied trigier 
+then pass post build variable assign with build number 
+
+> CD :-
+enable project parameter 
+then add string parameter 
+then use CI assign build variable 
+then print build number after complition from cd build.
+
+> Deploy on slave machine :- 
+.on new instance 
+.doker install 
+.install java
+.user add jenins 
+.passwd jenkins 
+.uermod  -a -G docker jenkins 
+.sudo vi /etc/ssh/sshd-config 
+.password authentication (then save changes)
+. sudo service sshd restart 
+
+.create slave node
+.remote root directory- (/home/jenkins)
+.add jenkins credintial
+
+.shell exicution:-
+docker login -u ajit4 -p $pass
+docker stop $(docker ps -qa) || true
+docker rm $(docker ps -qa) || true
+docker rmi $(docker images -q) || true
+docker run -d -p 8080:8080 ajit4/spring-petclinic:${BUILD} 
+
+
+
+DevOps 28-9-19 :- 
+
+Configuration management 
+type -1 traditinal  config managment
+          2 devops  config managment
+          
+          
+
+
